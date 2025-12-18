@@ -20,8 +20,10 @@ A ReactJS & FantaCSS spaced reptition word learning app
 
 # Quickstart
 npm install
+
 npm run dev
 
 For production:
 npm run build
+
 npm run preview
