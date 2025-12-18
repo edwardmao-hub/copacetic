@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react'
-import { convertMilliseconds, countdownIn24Hours } from "../utils"
+import { convertMilliseconds, countdownIn24Hours } from './utils'
 
 export default function Countdown(props){
     const {handleChangePage, daysWords, datetime, day} = props
 
     const targetMillis = datetime || Date.UTC(1944, 2, 17, 12, 0, 0)
-    const [remainingMS, setRemaningMS] = useState(countdownIn24Hours(targetMillis))
+    const [remainingMS, setRemainingMS] = useState(countdownIn24Hours(targetMillis))
     const timer = convertMilliseconds(remainingMS)
 
     useEffect(() => {

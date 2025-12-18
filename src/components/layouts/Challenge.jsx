@@ -1,7 +1,7 @@
 import { useState } from "react"
 import ProgressBar from "../ProgressBar"
-import { isEncountered, shuffle } from "../../utils"
-import DEFINITIONS from '../../utils/VOCAB.json'
+import { isEncountered, shuffle } from ".././utils"
+import DEFINITIONS from ".././utils/VOCAB.json"
 
 export default function Challenge(props) {
     const { day, daysWords, handleChangePage, 
@@ -10,17 +10,17 @@ export default function Challenge(props) {
     const [wordIndex, setWordIndex] = useState(0)
     const [inputVal, setInputVal] = useState("")
     const [showDefinition, setShowDefinition] = useState(false)
-    const [listToLearn, setListToLearn] = useState({
+    const [listToLearn, setListToLearn] = useState([
         ...daysWords,
         ...shuffle(daysWords),
         ...shuffle(daysWords),
         ...shuffle(daysWords),
-    })
+    ])
 
     const word = listToLearn[wordIndex]
     const isNewWord = showDefinition || 
     (!isEncountered(day, word) && wordIndex < daysWords.length)
-    const definition = DEFINTIONS[word]
+    const definition = DEFINITIONS[word]
 
     function giveUp(){
         setListToLearn([...listToLearn, word])
@@ -40,7 +40,7 @@ export default function Challenge(props) {
                             // red = incorrect, blue = correct
                             const styleToApply = inputVal.length < char + 1 
                             ? '' 
-                            : inputVal.split('')[eleIdx].toLowerCase() == definition.split('')[eleIdx].toLowerCase
+                                : inputVal.split('')[eleIdx].toLowerCase() == definition.split('')[eleIdx].toLowerCase()
                                 ? 'correct'
                                 : 'incorrect'
 
@@ -62,7 +62,7 @@ export default function Challenge(props) {
                                 handleCompleteDay()
                                 return
                             }
-                            setWordIndex(wordIndex++)
+                            setWordIndex(wordIndex+1)
                             setShowDefinition(false)
                             setInputVal('')
                             return

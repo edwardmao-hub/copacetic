@@ -15,7 +15,7 @@ export default function Layout(props) {
                 <a target="_blank" href="https://github.com/edwardmao-hub">
                     <img alt="pfp" src="https://avatars.githubusercontent.com/u/27038013?v=4" />
                     <p>@edwardmao-hub</p>
-                    <i class="fa-brands fa-github"></i>
+                    <i className="fa-brands fa-github"></i>
                 </a>
                 
             </footer>

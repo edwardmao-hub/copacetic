@@ -1,5 +1,6 @@
 export default function History(props){
-    const { history } = props
+    const { history = {} } = props
+    // const { history } = props
     const historyKeys = Object.keys(history)
     
     return (
@@ -11,19 +12,21 @@ export default function History(props){
                 ) : (
                     <div className="history-list">
                         {historyKeys.map((item, itemIndex) => {
-                            const dateKey = (new Date(item)).toString().split(' ').slice(1, 4).join(' ')
+                            const dateKey = item // stored as formatted string in App
+                            //const dateKey = (new Date(item)).toString().split(' ').slice(1, 4).join(' ')
                             return (
                                 <div key={itemIndex} className="card-button-secondary">
                                     <div>
                                         <p>Started</p>
-                                        <h6>{date}</h6>
+                                        <h6>{dateKey}</h6>
+                                        {/* <h6>{date}</h6> */}
                                     </div>
                                     <div>
                                         <p>Streak</p>
                                         <h6>{history[item]}</h6>
                                     </div>
                                 </div>
-  
+
                             )
                         })}
                     </div>      

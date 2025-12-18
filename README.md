@@ -19,4 +19,9 @@ If you are developing a production application, we recommend using TypeScript wi
 A ReactJS & FantaCSS spaced reptition word learning app
 
 # Quickstart
-# copacetic
+npm install
+npm run dev
+
+For production:
+npm run build
+npm run preview

@@ -1,5 +1,5 @@
-import { calcLevel, calculateAccuracy, calculateNewWords } from '../utils'
-import ProgressBar from "../ProgressBar"
+import { calcLevel, calculateAccuracy, calculateNewWords } from './utils'
+import ProgressBar from "./ProgressBar"
 
 
 export default function Stats(props){
@@ -31,7 +31,7 @@ export default function Stats(props){
                 </div>
             </div>
 
-            <Progressbar text={`lvl ${flooredLvl}`} remainder={remainder} />
+            <ProgressBar text={`lvl ${flooredLvl}`} remainder={remainder} />
         </div>
     )
 }

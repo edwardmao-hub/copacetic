@@ -4,8 +4,8 @@ import Welcome from "./components/layouts/Welcome.jsx"
 import Layout from "./components/layouts/Layout.jsx"
 import { useState, useEffect } from "react"
 
-import WORDS from './utsil/VOCAB.json'
-import { countdownIn24Hours, getWordByIndex, PLAN} from './utils'
+import WORDS from './components/utils/VOCAB.json'
+import { countdownIn24Hours, getWordByIndex, PLAN} from './components/utils'
 
 function App() {
 
@@ -33,7 +33,7 @@ function App() {
   }
   
   function handleCompleteDay(){
-    const newDay = day++
+    const newDay = day + 1
     const newDatetime = Date.now()
     setDay(newDay)
     setDatetime(newDatetime)
@@ -46,7 +46,7 @@ function App() {
 
   function handleIncrementAttempts(){
     //take curr attmpt num, increment and save it to local storage
-    const newRecord = attempts++
+    const newRecord = attempts + 1
     localStorage.setItem('attempts', newRecord)
     setAttempts(newRecord)
   }
@@ -96,7 +96,7 @@ function App() {
   const pages = {
     0: <Welcome handleCreateAccount={handleCreateAccount} username="hello world" name={name} setName={setName} />,
     1: <Dashboard history={history} name={name} attempts={attempts} PLAN={PLAN} day={day} handleChangePage={handleChangePage} 
-      daysWords={dayswords} datetime={datetime}/>,
+      daysWords={daysWords} datetime={datetime}/>,
     2: <Challenge day={day} daysWords={daysWords} handleChangePage={handleChangePage} 
       handleIncrementAttempts={handleIncrementAttempts} handleCompleteDay={handleCompleteDay} PLAN={PLAN}/>,
   }
